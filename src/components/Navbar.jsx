@@ -25,8 +25,10 @@ const Navbar = () => {
                 ? "/" 
                 : index === 1 
                 ? "/dollar" 
-                : index === navLinks.length - 1 
+                : index ===3
                 ? "/information" 
+                : index === navLinks.length - 1 
+                ? "/survey" 
                 : index === 2 
                 ? "/compare" 
                 : `#${nav.id}`
@@ -40,8 +42,10 @@ const Navbar = () => {
                   ? "/" 
                   : index === 1 
                   ? "/dollar" 
-                  : index === navLinks.length - 1 
+                  : index === 3
                   ? "/information" 
+                  : index === navLinks.length - 1 
+                  ? "/survey" 
                   : index === 2 
                   ? "/compare" 
                   : `#${nav.id}`
