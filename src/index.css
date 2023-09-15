@@ -47,6 +47,7 @@
   );
 }
 
+
 .bg-second-gradient {
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(147,205,252,1) 11%, rgba(92,178,251,1) 29%, rgba(1,132,247,1) 100%);
 }
