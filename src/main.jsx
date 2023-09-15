@@ -1,6 +1,8 @@
 import React from 'react';
 import Dollar from './pages/Dollar';
 import Compare from './pages/Compare';
+import Survey from './pages/Survey';
+import Information from './pages/Information';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
   {
     path: '/compare',
     element: <Compare />,
+  },
+  {
+    path: '/information',
+    element: <Information />,
+  },
+  {
+    path: '/survey',
+    element: <Survey />,
   },
 ]);
 

@@ -14,6 +14,10 @@ export const navLinks = [
     id: "product",
     title: "Compare Costs",
   },
+  {
+    id: "Info",
+    title: "Information Timeline",
+  },
 ];
 
 export const features = [

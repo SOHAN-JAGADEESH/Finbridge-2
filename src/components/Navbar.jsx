@@ -19,15 +19,39 @@ const Navbar = () => {
               index === navLinks.length - 1 ? "mr-0" : "mr-10"
             }`}
           >
-            <NavLink
-              to={index === 0 ? "/" : index === 1 ? "/dollar" : index === 2 || index === navLinks.length - 1 ? "/compare" : `#${nav.id}`}
-              exact
-              activeClassName="text-white"
-              className="text-dimWhite"
-              style={window.location.pathname === (index === 0 ? "/" : index === 1 ? "/dollar" : index === 2 || index === navLinks.length - 1 ? "/compare" : `#${nav.id}`) ? { color: 'white' } : {}}
-            >
-              {nav.title}
-            </NavLink>
+          <NavLink
+            to={
+              index === 0 
+                ? "/" 
+                : index === 1 
+                ? "/dollar" 
+                : index === navLinks.length - 1 
+                ? "/information" 
+                : index === 2 
+                ? "/compare" 
+                : `#${nav.id}`
+            }
+            exact
+            activeClassName="text-white"
+            className="text-dimWhite"
+            style={
+              window.location.pathname === (
+                index === 0 
+                  ? "/" 
+                  : index === 1 
+                  ? "/dollar" 
+                  : index === navLinks.length - 1 
+                  ? "/information" 
+                  : index === 2 
+                  ? "/compare" 
+                  : `#${nav.id}`
+              ) 
+              ? { color: 'white' } 
+              : {}
+            }
+          >
+            {nav.title}
+          </NavLink>
           </li>
         ))}
       </ul>
