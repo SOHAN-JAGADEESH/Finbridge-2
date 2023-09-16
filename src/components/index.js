@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Hero from "./Hero";
 import Input from "./Input";
 import Output from "./Output";
+import ResultsComponent from "./ResultsComponent";
 
 
 export {
@@ -19,4 +20,5 @@ export {
   Hero,
   Input,
   Output,
+  ResultsComponent,
 };
