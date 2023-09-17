@@ -5,7 +5,7 @@ import "survey-core/defaultV2.min.css";
 import "../index.css";
 import { json } from "./json";
 import { themeJson } from "./theme";
-import Navbar from "../components/Navbar";
+import {Navbar, Footer} from "../components";
 import styles from "../style";
 import ResultsComponent from "../components/ResultsComponent"; 
 import AnimatedHeader from '../components/AnimatedHeader'; // Import the AnimatedHeader component
@@ -20,25 +20,35 @@ function SurveyComponent() {
     survey.onComplete.add(async (sender, options) => {
         setShowSurvey(false);
         try {
-            const data = await dummyApiCall(sender.data);
+            const data = await apiCall(sender.data);
             setSurveyData(data);
         } catch (error) {
             console.error("Error fetching data", error);
         }
     });
 
-    const dummyApiCall = (data) => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve({
-                    Food: 200,
-                    Rent: 500,
-                    Utilities: 150,
-                    Entertainment: 100,
-                    Miscellaneous: 50,
-                });
-            }, 1000);
-        });
+    const apiCall = async (data) => {
+        console.log("API Request Data:", data);
+        try {
+            const response = await fetch("https://ikx7c2bwgf.execute-api.ap-southeast-2.amazonaws.com/test/", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+
+            const responseData = await response.json();
+            console.log('API Response:', responseData);
+            return responseData;
+        } catch (error) {
+            console.error('API call failed', error);
+            throw error;
+        }
     };
 
     return (
@@ -62,10 +72,16 @@ function SurveyComponent() {
                     )}
                           
                     {showSurvey ? (
-                        <div className="w-full h-70vh">
+                        <div className="w-full h-70vh relative">
+                            <button 
+                                onClick={() => setShowSurvey(false)} 
+                                className="absolute top-4 right-4 py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 z-10"
+                            >
+                                Go Back
+                            </button>
                             <Survey model={survey} />
                         </div>
-                    ) : (
+                            ) : (
                         <div className="text-center mb-4">
                             <button onClick={() => setShowSurvey(true)} className="py-2 px-4 bg-green-300 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
                                 Start Questionnaire
@@ -75,7 +91,18 @@ function SurveyComponent() {
                     {!showSurvey && surveyData && <ResultsComponent data={surveyData} />}
                 </div>
             </div>
+            <br/><br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/><br/><br/><br/><br/><br/>
+
+            <Footer/>
         </div>
+        
     );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from "../components/Navbar";
+import {Navbar, Footer} from "../components";
 import styles from "../style";
 import { useState, useEffect } from "react";
 
@@ -247,6 +247,7 @@ const Compare = () => {
                     </div>
                 </div>
             )}
+            <Footer/>
         </div>
     );
 }

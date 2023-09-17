@@ -181,3 +181,11 @@
   filter: blur(750px);
 }
 
+@layer utilities {
+  .bg-darkGray {
+    background-color: #111111; /* Adjust the color value to a suitable dark shade */
+  }
+  .text-emerald {
+    color: #50C878; /* Adjust to your exact emerald color code */
+  }
+}

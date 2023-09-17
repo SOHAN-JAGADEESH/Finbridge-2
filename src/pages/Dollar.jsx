@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import styles from "../style";
 import Input from "../components/Input";
 import Output from "../components/Output";
+import Footer from "../components/Footer";
 import AnimatedHeader from '../components/AnimatedHeader';
 
 
@@ -82,9 +83,11 @@ const Dollar = () => {
               <br/>
             </div>
           </div>
+          <br/>
+          
         </div>
       </div>
-
+      <Footer/>
     </div>
   );
 }

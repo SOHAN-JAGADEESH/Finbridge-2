@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from "../components/Navbar";
+import {Navbar,Footer} from "../components";
 import styles from "../style";
 import { Chrono } from "react-chrono";
 import { FaMoneyBillWave, FaPhoneAlt, FaUniversity } from 'react-icons/fa'; // Importing icons
@@ -191,6 +191,11 @@ const Information = () => {
           </div>
         </div>
       </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <Footer/>
     </div>
   );
 }
