@@ -2,15 +2,14 @@ import React from 'react';
 import Plot from 'react-plotly.js';
 
 function ResultsComponent({ data }) {
-    // Preparing data for Sankey chart using the data prop
-    const labels = Object.keys(data);
-    const values = Object.values(data);
+    // Exclude total_monthly_cost from the labels and values arrays
+    const labels = Object.keys(data).filter(key => key !== "total_monthly_cost");
+    const values = labels.map(label => data[label]);
 
-    // You'll need to create arrays representing the source, target, and value properties for the Sankey diagram
-    // Here, I'm creating a simple example with a single source and multiple targets
+    // Set total_monthly_cost as the only source node
     const source = Array(values.length).fill(0);
     const target = Array.from({ length: values.length }, (_, i) => i + 1);
-    
+
     const trace = {
         type: 'sankey',
         orientation: 'h',
@@ -18,23 +17,29 @@ function ResultsComponent({ data }) {
             pad: 15,
             thickness: 30,
             line: {
-                color: 'black',
+                color: 'white',
                 width: 0.5,
             },
-            label: ['Source', ...labels]
+            label: ['Total Monthly Cost', ...labels.map(label => label.replace(/_/g, ' '))],
+            color: ['emerald', ...Array(labels.length).fill('lightgrey')], // Set array of colors
         },
         link: {
             source: source,
             target: target,
             value: values,
+            color: Array(values.length).fill('green'), // Set array of colors
         }
     };
+    
     
     const layout = {
         title: 'Estimated Expenditure Sankey Diagram',
         font: {
             size: 10,
-        }
+            color: 'white',
+        },
+        paper_bgcolor: 'black',
+        
     };
     
     return <Plot data={[trace]} layout={layout} />;

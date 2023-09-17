@@ -30,7 +30,7 @@ const Output = ({ response }) => {
           days= {Math.round(value * adjustmentMultipliers[index] )}
           description={itemsData[index].description}
           icon={icons[index]}
-          specialCard={index === 0}
+          specialCard={index === 4}
         />
       ))}
     </div>

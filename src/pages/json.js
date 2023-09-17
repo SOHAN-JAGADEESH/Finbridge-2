@@ -155,9 +155,12 @@ export const json = {
           "isRequired": true,
           "choices": [
            "Budget",
-           "Moderate",
            {
-            "value": "Item 3",
+            "value": "average",
+            "text": "Moderate"
+           },
+           {
+            "value": "premium",
             "text": "Expensive"
            }
           ],
@@ -170,8 +173,14 @@ export const json = {
           "isRequired": true,
           "choices": [
            "Budget",
-           "Moderate",
-           "Expensive"
+           {
+            "value": "average",
+            "text": "Moderate"
+           },
+           {
+            "value": "premium",
+            "text": "Expensive"
+           }
           ],
           "maxSelectedChoices": 1
          }
@@ -198,7 +207,7 @@ export const json = {
          "Often"
         ],
         "rows": [
-         "Bicyle/Walking",
+         "Bicycle/Walking",
          "Public Transport",
          "Car",
          "Taxi"
@@ -222,8 +231,14 @@ export const json = {
           "isRequired": true,
           "choices": [
            "Budget",
-           "Mid Range",
-           "Luxury"
+           {
+            "value": "average",
+            "text": "Mid Range"
+           },
+           {
+            "value": "premium",
+            "text": "Luxury"
+           }
           ]
          },
          {

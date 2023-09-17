@@ -88,7 +88,9 @@ function SurveyComponent() {
                             </button>
                         </div>
                     )}
-                    {!showSurvey && surveyData && <ResultsComponent data={surveyData} />}
+                    <div className="flex items-center justify-center">
+                        {!showSurvey && surveyData && <ResultsComponent data={surveyData} />}
+                    </div>
                 </div>
             </div>
             <br/><br/>
