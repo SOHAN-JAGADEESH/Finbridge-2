@@ -1,22 +1,52 @@
 import styles from "../style";
 import { logo } from "../assets";
+import { NavLink, Link } from "react-router-dom";
+import { navLinks } from "../constants";
 import { footerLinks, socialMedia } from "../constants";
 
-const Footer = () => (
-  <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
-    <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
-      <div className="flex-[1] flex flex-col justify-start mr-10">
-        <img
-          src={logo}
-          alt="hoobank"
-          className="w-[266px] h-[72.14px] object-contain"
-        />
-        <p className={`${styles.paragraph} mt-4 max-w-[312px]`}>
-          Your guide in a new country
-        </p>
+const Footer = () => {
+  return (
+    <footer className="bg-darkGray py-10 px-4 md:px-0">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        
+        <div className="mb-6 md:mb-0 pl-4 md:pl-0">
+        <Link to="/">
+            <img src={logo} alt="FinBridge logo" className="w-[124px] h-[32px]" />
+        </Link>
+        </div>
+
+        <div className="mt-6 md:mt-0 text-white text-sm">
+           2023 Finbridge. All rights reserved.
+        </div>
+
+        <div className="flex flex-col space-y-4 pr-4 md:pr-0">
+          {navLinks.map((nav, index) => (
+            <NavLink
+              key={nav.id}
+              to={
+                index === 0
+                  ? "/"
+                  : index === 1
+                  ? "/dollar"
+                  : index === 3
+                  ? "/information"
+                  : index === navLinks.length - 1
+                  ? "/survey"
+                  : index === 2
+                  ? "/compare"
+                  : `#${nav.id}`
+              }
+              activeClassName="text-emerald"
+              className="text-white text-sm hover:text-emerald"
+            >
+              {nav.title}
+            </NavLink>
+          ))}
+        </div>
+        
       </div>
-    </div>
-  </section>
-);
+    </footer>
+  );
+};
 
 export default Footer;
