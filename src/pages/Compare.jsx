@@ -2,6 +2,7 @@ import React from 'react'
 import {Navbar, Footer} from "../components";
 import styles from "../style";
 import { useState, useEffect } from "react";
+import "../index.css";
 
 const Compare = () => {
   const [showHowToGuide, setShowHowToGuide] = useState(false);
@@ -66,13 +67,17 @@ const Compare = () => {
                   <Navbar />
                   <div className="mt-8 text-center">
                       <h2 className="flex-1 font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[70.8px] leading-[60px]">Cost Comparison for Students in Melbourne</h2>
-                      <p className="font-poppins text-[20px] text-white leading-[28px] mt-4 text-align: justify">
-                        Ever wonder how many hours of work covers your monthly rent or weekly groceries?
-                        Relative Price is an economic concept to interpret the monetary price tag of an item in terms of another
-                        To enhance your understanding of Melbourne's prices, this page gives the Relative Prices of some necessities based on your hourly wage
-                        Always remember, the fruit after hard work is the sweetest.
-                        Every hour you work brings you a step closer to becoming a self-sufficient individual. 
-                      </p>
+                      <div className="font-poppins text-[20px] text-white leading-[28px] mt-4 text-justify">
+    <p className="customIndent">
+        - <strong>Understanding Relative Prices:</strong> Learn how your hourly wage equates to everyday expenses in Melbourne, bringing clarity to your financial planning.
+    </p>
+    <p className="customIndent">
+        - <strong>More Than Just a Price Tag:</strong> Delve deeper into the economic concept of relative price, seeing past the monetary value to understand the real value of goods in terms of hours worked.
+    </p>
+    <p className="customIndent">
+        - <strong>Tailored for Victoria:</strong> Use this tool designed for international students to gauge how many working hours cover essential costs, fostering better budget management.
+    </p>
+</div>
                       <p className="font-poppins text-[15px] text-white leading-[28px] mt-4">
                           <button className="text-emerald-400 underline" onClick={() => setShowHowToGuide(true)}>How to use this tool?</button>
                           <span className="mx-2">|</span>
