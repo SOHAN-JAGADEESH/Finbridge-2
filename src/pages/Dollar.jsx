@@ -56,7 +56,7 @@ const Dollar = () => {
                 </p>
               
               <p className="font-poppins text-[16px] text-gradient leading-[26px] mt-4">
-                Remember, these are approximate values based on average costs and are meant to serve as a general guideline. Actual expenses can vary based on individual preferences, location, and current market conditions.
+                Note: these are approximate values based on average costs and are meant to serve as a general guideline. Actual expenses can vary based on individual preferences, location, and current market conditions.
             </p>
             <br/>
             </div>

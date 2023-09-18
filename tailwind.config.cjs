@@ -10,6 +10,8 @@ module.exports = {
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
         customGreen: '#677960',
+        emerald: '#1CE8A8',
+        
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

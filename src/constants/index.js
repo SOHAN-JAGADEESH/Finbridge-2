@@ -19,8 +19,8 @@ export const navLinks = [
     title: "Information Timeline",
   },
   {
-    id: "Survey",
-    title: "Survey",
+    id: "Expenditure Estimator",
+    title: "Expenditure Estimator",
   },
 ];
 

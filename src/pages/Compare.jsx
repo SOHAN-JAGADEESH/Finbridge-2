@@ -8,7 +8,7 @@ const Compare = () => {
   const [showHowToGuide, setShowHowToGuide] = useState(false);
   const [showBenefits, setShowBenefits] = useState(false);
   const [hourlyWage, setHourlyWage] = useState(null);
-  const [confirmedHourlyWage, setConfirmedHourlyWage] = useState(null); // New state
+  const [confirmedHourlyWage, setConfirmedHourlyWage] = useState(0); // New state
   const [modalOpen, setModalOpen] = useState(false);
   const [wageError, setWageError] = useState(false);
 
@@ -68,22 +68,26 @@ const Compare = () => {
                   <div className="mt-8 text-center">
                       <h2 className="flex-1 font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[70.8px] leading-[60px]">Cost Comparison for Students in Melbourne</h2>
                       <div className="font-poppins text-[20px] text-white leading-[28px] mt-4 text-justify">
-    <p className="customIndent">
-        - <strong>Understanding Relative Prices:</strong> Learn how your hourly wage equates to everyday expenses in Melbourne, bringing clarity to your financial planning.
-    </p>
-    <p className="customIndent">
-        - <strong>More Than Just a Price Tag:</strong> Delve deeper into the economic concept of relative price, seeing past the monetary value to understand the real value of goods in terms of hours worked.
-    </p>
-    <p className="customIndent">
-        - <strong>Tailored for Victoria:</strong> Use this tool designed for international students to gauge how many working hours cover essential costs, fostering better budget management.
-    </p>
-</div>
+                        <p className="customIndent">
+                            - <strong>Understanding Relative Prices:</strong> Learn how your hourly wage equates to everyday expenses in Melbourne, bringing clarity to your financial planning.
+                        </p>
+                        <p className="customIndent">
+                            - <strong>More Than Just a Price Tag:</strong> Delve deeper into the economic concept of relative price, seeing past the monetary value to understand the real value of goods in terms of hours worked.
+                        </p>
+                        <p className="customIndent">
+                            - <strong>Tailored for Victoria:</strong> Use this tool designed for international students to gauge how many working hours cover essential costs, fostering better budget management.
+                        </p>
+                    </div>
+                    <p className="font-poppins text-[16px] text-gradient leading-[26px] mt-4">
+                        Note: these are approximate values based on average costs and are meant to serve as a general guideline. Actual expenses can vary based on individual preferences, location, and current market conditions.
+                    </p>
                       <p className="font-poppins text-[15px] text-white leading-[28px] mt-4">
                           <button className="text-emerald-400 underline" onClick={() => setShowHowToGuide(true)}>How to use this tool?</button>
                           <span className="mx-2">|</span>
                           <button className="text-emerald-400 underline" onClick={() => setShowBenefits(true)}>Benefits</button>
                       </p>
-                      <br />
+                      
+                      
                   </div>
 
                   <div className="w-full border-2 border-green-300 my-4"></div>
@@ -123,7 +127,7 @@ const Compare = () => {
                                   Submit
                               </button>
                             </div>
-                            <p className="text-red-500 text-xs mt-1" role="alert">Hourly wage should be at least 23 AUD.</p>
+                            {/* <p className="text-red-500 text-xs mt-1" role="alert">Hourly wage should be at least 23 AUD.</p> */}
                         </div>
                         <div className="grid grid-cols-4 gap-4 mb-4 font-bold">
                         <div>Category</div>
@@ -140,23 +144,25 @@ const Compare = () => {
                             <div>Rent</div>
                             <div>${melbourneData.rent}</div>
                             <div>{melbourneRatios.rent}</div>
-                            <div>{(melbourneData.rent / confirmedHourlyWage).toFixed(2)}</div>
+                            <div>{confirmedHourlyWage ? (melbourneData.rent / confirmedHourlyWage).toFixed(2) : '0.00'}</div>
 
                             <div>Food Cost</div>
                             <div>${melbourneData.foodCost}</div>
                             <div>{melbourneRatios.food}</div>
-                            <div>{(melbourneData.foodCost / confirmedHourlyWage).toFixed(2)}</div>
+                            <div>{confirmedHourlyWage ? (melbourneData.foodCost / confirmedHourlyWage).toFixed(2) : '0.00'}</div>
 
                             <div>Transportation</div>
                             <div>${melbourneData.transportationCosts}</div>
                             <div>{melbourneRatios.transport}</div>
-                            <div>{(melbourneData.transportationCosts / confirmedHourlyWage).toFixed(2)}</div>
+                            <div>{confirmedHourlyWage ? (melbourneData.transportationCosts / confirmedHourlyWage).toFixed(2) : '0.00'}</div>
 
                             <div>Utilities</div>
                             <div>${melbourneData.utilities}</div>
                             <div>{melbourneRatios.utilities}</div>
-                            <div>{(melbourneData.utilities / confirmedHourlyWage).toFixed(2)}</div>
+                            <div>{confirmedHourlyWage ? (melbourneData.utilities / confirmedHourlyWage).toFixed(2) : '0.00'}</div>
                         </div>
+                        <p className="text-sm text-gray-500 mt-4">Note: These values are all pre-tax values, and actual values may vary according to your annual income.</p>
+ 
                     </div>
                     <div className="bg-blue-gradient p-4 rounded shadow-lg">
                         <h3 className="text-2xl font-bold mb-4">India</h3>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CategoryCard = ({ title, days, description, icon, specialCard }) => {
+const CategoryCard = ({ title, days, description, icon, specialCard, details  }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
@@ -23,7 +23,7 @@ const CategoryCard = ({ title, days, description, icon, specialCard }) => {
       <div 
         className={`w-full h-full ${specialCard ? 'bg-yellow-500' : 'bg-blue-gradient'} p-9 transition-transform rounded-md shadow-md absolute top-0 left-0 backface-hidden transform ${isFlipped ? 'rotate-y-0' : 'rotate-y-180'}`}
       >
-        <p>Additional details about {title}.</p>
+        <div dangerouslySetInnerHTML={{ __html: details }} />
       </div>
     </div>
   );

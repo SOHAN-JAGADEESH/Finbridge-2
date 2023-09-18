@@ -3,7 +3,8 @@ import {Navbar,Footer} from "../components";
 import styles from "../style";
 import { Chrono } from "react-chrono";
 import { FaMoneyBillWave, FaPhoneAlt, FaUniversity } from 'react-icons/fa'; // Importing icons
-
+import AnimatedHeader from '../components/AnimatedHeader';
+import "../index.css";
 
 const Information = () => {
   const dummyData = [
@@ -96,7 +97,7 @@ const Information = () => {
     },
     { 
       title: "Debit card", 
-      cardTitle: "Debit card", 
+      cardTitle: "  Debit card", 
       cardDetailedText: [
         "Receiving your card: Within two weeks after applying for a bank account, your cards would be mailed to your postal address. Contact your bank if you have any questions.",
         "Usage: Learn how to use your debit card for various transactions including online purchases. A debit card directly deduct funds from your designated account, with no credit allowed. Insufficient fund may result in failure in processing your payments.",
@@ -155,7 +156,7 @@ const Information = () => {
     },
     { 
       title: "Budgeting and Financial Planning - FinBridge", 
-      cardTitle: "Budgeting and Financial Planning - FinBridge", 
+      cardTitle: "   Budgeting and Financial Planning - FinBridge", 
       cardDetailedText: [
         "Creating a Budget: Develop a monthly budget to manage your finances effectively.",
         "Expense Tracking: Use apps or tools to track your expenses and stay within your budget.",
@@ -170,15 +171,18 @@ const Information = () => {
         <div className={`${styles.boxWidth}`}>
           <Navbar />
           <div className="mt-8 text-center">
-            <h1 className="text-3xl font-bold text-gradient">Your Financial Roadmap in Australia</h1>
+          <AnimatedHeader text= "Your Financial Roadmap in Australia" />
             <p className="font-poppins text-[20px] text-white leading-[28px] mt-4">
             Welcome to your personalized financial roadmap, crafted specifically for international students in Australia. This timeline outlines the essential financial milestones and to-dos,
             helping you to manage your funds effectively while studying abroad. From opening a local bank account to understanding the nuances of Australian taxes - we've got you covered!            </p>          
-            <br/>
+            
+            <div className="mt-8 text-center">
+            <h2 className="text-2xl font-bold text-gradient">Your Journey Begins Here</h2>
             <br/>
             </div>
+            </div>
 
-          <div style={{ width: "100%", height: "55vh" }}>
+          <div style={{ width: "100%", height: "65vh" }}>
             <Chrono 
               items={dummyData} 
               mode="VERTICAL_ALTERNATING" 
@@ -186,7 +190,14 @@ const Information = () => {
               slideShow
               slideShowControls="TOP"
               contentDetailsHeight={20}  
-              
+              theme={{
+                primary: "#1CE8A8", // Set the primary color to emerald (hex code for emerald green)
+                secondary: "#000000", // Set the secondary color to black
+                cardBgColor: 'white', // Set the background color of the cards to black
+                titleColor: "#8EECCF", // Set the title color to emerald
+                titleColorActive: "#1CE8A8",
+                cardTitleColor: "#8EECCF",
+              }}
             />
           </div>
         </div>
