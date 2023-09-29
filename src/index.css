@@ -231,3 +231,24 @@
   padding-left: 1em;
 }
 
+.scroll-down-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-down-btn svg {
+  width: 48px; /* Adjust size as needed */
+  height: 48px;
+  fill: #1CE8A8;
+  animation: bobbing 1s infinite alternate;
+}
+
+@keyframes bobbing {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}

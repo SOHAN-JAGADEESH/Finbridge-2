@@ -32,6 +32,7 @@ import utilities from "./utilites_icon.svg";
 import section from "./section_design.png";
 import hero from "./hero1.png";
 import hurdles from "./hurdles1.png";
+import arrow from "./arrow.svg";
 
 export {
   airbnb,
@@ -67,5 +68,6 @@ export {
   utilities,
   section,
   hero,
-  hurdles
+  hurdles,
+  arrow
 };
