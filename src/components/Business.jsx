@@ -19,12 +19,12 @@ const FeatureCard = ({ icon, title, content, index }) => (
 );
 
 const Business = () =>  (
-  <section id="features" className={layout.section}>
+  <section id="features" className={`${layout.section} bg-[#0b0b0b] rounded-[4px]`}>
     <div className={layout.sectionInfo}>
-      <h2 className={styles.heading2}>
+      <h2 className={`${styles.heading2} pl-9 py-3`}>
         From Classes to Cashflows, <br className="sm:block hidden" /> We've Got Your Back.
       </h2>
-      <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+      <p className={`${styles.paragraph} max-w-[470px] mt-5 pl-9`}>
       Starting a new chapter in Australia isn't just about academics, 
       it's about understanding the dollars and cents too.
       With a plethora of financial decisions to make, from bank accounts to budgets,

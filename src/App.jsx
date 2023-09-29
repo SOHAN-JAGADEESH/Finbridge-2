@@ -20,14 +20,18 @@ const App = () => (
     <div className={`bg-primary overlay ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Business />
-        <div style={{ border: '1px solid #1CE8A8', borderRadius: '10px', boxShadow: 'inset 0 0 5px #1CE8A8', padding: '10px', margin: '10px 0' }}>
+        <br/>
+        <div style={{ border: '1px solid #1CE8A8', borderRadius: '5px', boxShadow: 'inset 0 0 5px #1CE8A8', padding: '10px', margin: '10px 0' }}>
           <Section2 />
         </div>
+        <br/>
         <CardDeal />
         <CTA />
-        <Footer />
+        
       </div>
+      
     </div>
+    <Footer />
   </div>
 );
 
