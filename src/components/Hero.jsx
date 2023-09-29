@@ -27,9 +27,9 @@ const Hero = () => {
         <img src={hero} alt="billing" className="w-[90%] h-auto max-h-[60vh] lg:max-h-[70vh] relative z-[5]" />
       </div>
       <div className="scroll-down-btn" onClick={handleScrollDown}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 16L4 8M12 16L20 8M12 16L12 4" stroke="#1CE8A8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 16L4 8M12 16L20 8" stroke="#1CE8A8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
       </div>
     </section>
 
