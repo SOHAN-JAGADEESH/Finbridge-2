@@ -4,7 +4,7 @@ import { Business, CardDeal, CTA, Footer, Navbar, Hero, Section2 } from "./compo
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
 
-<     div className="h-screen flex flex-col">  {/* Set the height to be 100vh and use flexbox */}
+<     div className="h-screen flex flex-col main-section">  {/* Set the height to be 100vh and use flexbox */}
         <div className={`${styles.paddingX}`}>
           <Navbar />
         </div>

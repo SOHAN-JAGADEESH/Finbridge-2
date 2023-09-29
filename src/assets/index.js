@@ -30,6 +30,8 @@ import housing from "./housing_icon.svg";
 import transport from "./transport_icon.svg";
 import utilities from "./utilites_icon.svg";
 import section from "./section_design.png";
+import hero from "./hero1.png";
+import hurdles from "./hurdles1.png";
 
 export {
   airbnb,
@@ -63,5 +65,7 @@ export {
   housing,
   transport,
   utilities,
-  section
+  section,
+  hero,
+  hurdles
 };

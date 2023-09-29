@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "../style";
-import { discount, robot } from "../assets";
+import { discount, robot, hero } from "../assets";
 import Button from "./Button";
 
 const Hero = () => {
@@ -15,7 +15,7 @@ const Hero = () => {
       </div>
 
       <div className={`flex flex-1 ${styles.flexCenter} md:my-0 my-10 relative overflow-hidden`}>
-        <img src={robot} alt="billing" className="w-[90%] h-auto max-h-[60vh] lg:max-h-[70vh] relative z-[5]" />
+        <img src={hero} alt="billing" className="w-[90%] h-auto max-h-[60vh] lg:max-h-[70vh] relative z-[5]" />
       </div>
     </section>
 
