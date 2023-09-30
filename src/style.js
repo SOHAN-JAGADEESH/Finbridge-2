@@ -3,6 +3,8 @@ const styles = {
 
   heading2: "font-poppins font-light xs:text-[34px] text-[20px] text-[#1CE8A8] leading-[30px] w-full mb-4 leading-relaxed", // Modified to match .hero-text
   paragraph: "font-poppins font-thin text-[17px] text-white leading-[30.8px] leading-relaxed", // Modified to match .sub-text
+  note: "font-poppins font-thin text-[13px] text-[#1CE8A8] leading-[30.8px] leading-relaxed", // Modified to match .sub-text
+  heading3: "font-poppins font-light xs:text-[30px] text-[20px] text-[#1CE8A8] leading-[30px] w-full mb-4 leading-relaxed", // Modified to match .hero-text
 
 
   flexCenter: "flex justify-center items-center",

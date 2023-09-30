@@ -34,9 +34,10 @@ const Input = ({ setAmount }) => {
           className="w-full p-2 border rounded-md"
         />
         {error && <p className="text-red-500 mt-2">{error}</p>}
+        <br/>
         <button 
           onClick={handleSubmit} 
-          className="mt-2 w-full bg-blue-500 py-4 px-6 font-poppins text-primary bg-blue-gradient rounded-md hover:bg-blue-600 transition duration-200"
+          className={`mt-2 w-full py-3 px-6 font-poppins font-medium text-[#1CE8A8] bg-black border border-[#1CE8A8] rounded-[3px] outline-none hover:bg-[#1CE8A8] hover:text-black `}
         >
           Calculate
         </button>
