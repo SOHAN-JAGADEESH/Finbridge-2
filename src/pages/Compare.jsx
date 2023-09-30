@@ -62,41 +62,41 @@ const Compare = () => {
 
   return (
       <div className="bg-primary min-h-screen relative">
-          <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+          <div className={`${styles.paddingX} ${styles.flexCenter} main-section`}>
               <div className={`${styles.boxWidth}`}>
                   <Navbar />
                   <div className="mt-8 text-center">
-                      <h2 className="flex-1 font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[70.8px] leading-[60px]">Cost Comparison for Students in Melbourne</h2>
-                      <div className="font-poppins text-[20px] text-white leading-[28px] mt-4 text-justify">
+                      <h2 className={`${styles.heading2}`}>Cost Comparison for Students in Melbourne</h2>
+                      <div className= {`${styles.paragraph} mt-4 text-justify`}>
                         <p className="customIndent">
-                            - <strong>Understanding Relative Prices:</strong> Learn how your hourly wage equates to everyday expenses in Melbourne, bringing clarity to your financial planning.
+                            <strong>Understanding Relative Prices:</strong> Learn how your hourly wage equates to everyday expenses in Melbourne, bringing clarity to your financial planning.
                         </p>
-                        <p className="customIndent">
+                        {/* <p className="customIndent">
                             - <strong>More Than Just a Price Tag:</strong> Delve deeper into the economic concept of relative price, seeing past the monetary value to understand the real value of goods in terms of hours worked.
                         </p>
                         <p className="customIndent">
                             - <strong>Tailored for Victoria:</strong> Use this tool designed for international students to gauge how many working hours cover essential costs, fostering better budget management.
-                        </p>
+                        </p> */}
                     </div>
-                    <p className="font-poppins text-[16px] text-gradient leading-[26px] mt-4">
+                    <p className={`${styles.note} mt-4 `}>
                         Note: these are approximate values based on average costs and are meant to serve as a general guideline. Actual expenses can vary based on individual preferences, location, and current market conditions.
                     </p>
-                      <p className="font-poppins text-[15px] text-white leading-[28px] mt-4">
+                      <p className="font-poppins text-[15px] text-[#008CFF] leading-[28px] mt-4">
                           <button className="text-emerald-400 underline" onClick={() => setShowHowToGuide(true)}>How to use this tool?</button>
                           <span className="mx-2">|</span>
                           <button className="text-emerald-400 underline" onClick={() => setShowBenefits(true)}>Benefits</button>
                       </p>
-                      
+                      <br/>
                       
                   </div>
 
-                  <div className="w-full border-2 border-green-300 my-4"></div>
+                  <div className="border-2 border-[#1CE8A8] p-5">
 
-                  <div className="text-center mb-4">
-                      <h2 className="text-2xl font-bold text-gradient">Living Cost Comparison</h2>
+                  <div className={`${styles.heading3} mt-4 text-center`}>
+                      <h2 >Living Cost Comparison</h2>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-8">
+                  <div className="grid grid-cols-2 gap-5">
                     <div className="bg-blue-gradient p-4 rounded shadow-lg min-h-64 relative">
                         <button className="absolute top-2 right-2 text-gray-500 z-10" onClick={() => setModalOpen(true)}>How we calculate?</button>
                         <h3 className="text-2xl font-bold mb-4">Melbourne</h3>
@@ -200,9 +200,11 @@ const Compare = () => {
                             <div>{(indiaData.utilities / 287.5).toFixed(2)}</div>
                         </div>
                     </div>
+                    </div>
                     <br/>
                     <br/>
                   </div>
+                  <br/>
               </div>
           </div>
 
@@ -257,7 +259,10 @@ const Compare = () => {
                         <button className="mt-4 text-blue-500" onClick={() => setModalOpen(false)}>Close</button>
                     </div>
                 </div>
+
             )}
+
+            
             <Footer/>
         </div>
     );
