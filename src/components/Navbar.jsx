@@ -1,96 +1,69 @@
 import { useState } from "react";
-import { close, logo, menu } from "../assets";
+import { close, logo, menu, navbg } from "../assets";
 import { navLinks } from "../constants";
 import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <nav className="w-full flex py-4 justify-between items-center navbar">
       <Link to="/">
-            <img src={logo} alt="FinBridge logo" className="w-[124px] h-[32px]" />
+        <img src={logo} alt="FinBridge logo" className="w-[124px] h-[32px]" />
       </Link>
-
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {navLinks.map((nav, index) => (
-          <li
-            key={nav.id}
-            className={`font-poppins font-light cursor-pointer text-[16px] ${
-              index === navLinks.length - 1 ? "mr-0" : "mr-10"
-            }`}
-          >
-          <NavLink
-            to={
-              index === 0 
-                ? "/" 
-                : index === 1 
-                ? "/dollar" 
-                : index ===3
-                ? "/information" 
-                : index === navLinks.length - 1 
-                ? "/survey" 
-                : index === 2 
-                ? "/compare" 
-                : `#${nav.id}`
-            }
-            exact
-            activeClassName="text-white"
-            className="text-dimWhite"
-            style={
-              window.location.pathname === (
-                index === 0 
-                  ? "/" 
-                  : index === 1 
-                  ? "/dollar" 
-                  : index === 3
-                  ? "/information" 
-                  : index === navLinks.length - 1 
-                  ? "/survey" 
-                  : index === 2 
-                  ? "/compare" 
-                  : `#${nav.id}`
-              ) 
-              ? { color: 'white' } 
-              : {}
-            }
-          >
-            {nav.title}
-          </NavLink>
-          </li>
-        ))}
-      </ul>
-
-      <div className="sm:hidden flex flex-1 justify-end items-center">
+       
+      <div className="flex flex-1 justify-end items-center">
         <img
-          src={toggle ? close : menu}
+          src={menu}
           alt="menu"
-          className="w-[28px] h-[28px] object-contain"
+          className="w-[28px] h-[28px] object-contain cursor-pointer"
+          style={{ filter: isHovered ? "invert(35%) sepia(93%) saturate(743%) hue-rotate(123deg) brightness(92%) contrast(89%)" : "" }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           onClick={() => setToggle(!toggle)}
         />
 
         <div
           className={`${
-            !toggle ? "hidden" : "flex"
-          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+            !toggle ? "translate-x-full" : "translate-x-0"
+          } transition-transform duration-300 ease-in-out fixed top-0 right-0 h-full w-[250px] p-6 pt-20`}
+          style={{ 
+            zIndex: 1000, 
+            background: `linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9)), url(${navbg}), rgba(0, 0, 0, 1)`
+          }}
         >
-          <ul className="list-none flex justify-end items-start flex-1 flex-col">
-            {navLinks.map((nav, index) => (
-              <li
-              key={nav.id}
-              className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                index === navLinks.length - 1 ? "mb-0" : "mb-4"
-              }`}
-            >
-              <NavLink
-                to={index === 0 ? "/" : index === 1 ? "/dollar" : index === 2 || index === navLinks.length - 1 ? "/compare" : `#${nav.id}`}
-                activeClassName="text-white"
-                className="text-dimWhite"
-              >
-                {nav.title}
-              </NavLink>
-            </li>
+          {/* Close Icon */}
+          <img
+  src={close}
+  alt="close"
+  className="w-[22px] h-[22px] object-contain cursor-pointer absolute top-4 right-4"
+  style={{ 
+    filter: isHovered 
+      ? 'invert(35%) sepia(60%) saturate(400%) hue-rotate(130deg)'  // Color for #007e57
+      : 'invert(35%) sepia(93%) saturate(743%) hue-rotate(123deg) brightness(92%) contrast(89%)'  // Color for #1CE8A8
+  }}
+  onClick={() => setToggle(false)}
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+/>
+
+            <ul className="list-none flex flex-col justify-start items-start h-full">
+              {navLinks.map((nav, index) => (
+                <li
+                  key={nav.id}
+                  className={`font-poppins font-medium cursor-pointer text-[#1CE8A8] text-[16px] ${
+                    index === navLinks.length - 1 ? "mb-0" : "mb-4"
+                  } `}
+                >
+                <NavLink
+                  to={index === 0 ? "/" : index === 1 ? "/dollar" : index === 2 ? "/compare" : index === 3 ? "/information" : index === 4 ? "/survey" : index === 5 ? "/analyze" : index === navLinks.length - 1 ? "/budget" : `#${nav.id}`}
+                  activeClassName="text-[#1CE8A8]"
+                  className="text-[#1CE8A8] hover:text-[#007e57]"
+                >
+                  {nav.title}
+                </NavLink>
+              </li>
             ))}
           </ul>
         </div>

@@ -3,6 +3,8 @@ import Dollar from './pages/Dollar';
 import Compare from './pages/Compare';
 import Survey from './pages/Survey';
 import Information from './pages/Information';
+import Analyze from './pages/Analyze';
+import Budget from './pages/Budget';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
   {
     path: '/survey',
     element: <Survey />,
+  },
+  {
+    path: '/analyze',
+    element: <Analyze />,
+  },
+  {
+    path: '/budget',
+    element: <Budget />,
   },
 ]);
 

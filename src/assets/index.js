@@ -33,6 +33,7 @@ import section from "./section_design.png";
 import hero from "./hero1.png";
 import hurdles from "./hurdles1.png";
 import arrow from "./arrow.svg";
+import navbg from "./navbg.svg";
 
 export {
   airbnb,
@@ -69,5 +70,6 @@ export {
   section,
   hero,
   hurdles,
-  arrow
+  arrow, 
+  navbg
 };
