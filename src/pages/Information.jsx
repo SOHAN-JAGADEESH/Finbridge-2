@@ -1,9 +1,10 @@
 import React from 'react';
 import {Navbar,Footer} from "../components";
 import styles from "../style";
-import { Chrono } from "react-chrono";
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css'; // Importing the styles
+
 import { FaMoneyBillWave, FaPhoneAlt, FaUniversity } from 'react-icons/fa'; // Importing icons
-import AnimatedHeader from '../components/AnimatedHeader';
 import "../index.css";
 
 const Information = () => {
@@ -167,46 +168,60 @@ const Information = () => {
 
   return (
     <div className="bg-primary w-full overflow-hidden min-h-screen relative">
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} main-section`}>
         <div className={`${styles.boxWidth}`}>
           <Navbar />
           <div className="mt-8 text-center">
-          <AnimatedHeader text= "Your Financial Roadmap in Australia" />
-            <p className="font-poppins text-[20px] text-white leading-[28px] mt-4">
-            Welcome to your personalized financial roadmap, crafted specifically for international students in Australia. This timeline outlines the essential financial milestones and to-dos,
-            helping you to manage your funds effectively while studying abroad. From opening a local bank account to understanding the nuances of Australian taxes - we've got you covered!            </p>          
-            
-            <div className="mt-8 text-center">
-            <h2 className="text-2xl font-bold text-gradient">Your Journey Begins Here</h2>
-            <br/>
-            </div>
-            </div>
+            <h2 className={`${styles.heading2}`}>Your Financial Roadmap in Australia</h2>
+            <p className={`${styles.paragraph} mt-4 `}>
+              Welcome to your personalized financial roadmap, crafted specifically for international students in Australia. This timeline outlines the essential financial milestones and to-dos,
+              helping you to manage your funds effectively while studying abroad. From opening a local bank account to understanding the nuances of Australian taxes - we've got you covered!
+            </p>
 
-          <div style={{ width: "100%", height: "65vh" }}>
-            <Chrono 
-              items={dummyData} 
-              mode="VERTICAL_ALTERNATING" 
-              //cardHeight={250} 
-              slideShow
-              slideShowControls="TOP"
-              contentDetailsHeight={20}  
-              theme={{
-                primary: "#1CE8A8", // Set the primary color to emerald (hex code for emerald green)
-                secondary: "#000000", // Set the secondary color to black
-                cardBgColor: 'white', // Set the background color of the cards to black
-                titleColor: "#8EECCF", // Set the title color to emerald
-                titleColorActive: "#1CE8A8",
-                cardTitleColor: "#8EECCF",
-              }}
-            />
+            <div className="mt-8 text-center">
+              <h2 className={`${styles.heading3}`}>Your Journey Begins Here</h2>
+              <br />
+            </div>
           </div>
+          
+          <VerticalTimeline lineColor={ '#1CE8A8'}>
+            {dummyData.map((data, index) => (
+              <VerticalTimelineElement
+                key={index}
+                date={data.title}
+                contentStyle={{ background: '#0b0b0b', color: '#ffffff' }}
+                contentArrowStyle={{ borderRight: '7px solid #0b0b0b' }}
+                iconStyle={{ background: '#1CE8A8', color: '#fff', border: '2px solid black', boxShadow: 'none' }}
+                icon={<FaMoneyBillWave />}
+                
+              >
+                <h3 className={`${styles.heading4} vertical-timeline-element-title `}>{data.cardTitle}</h3>
+                <br/>
+                {data.media && data.media.type === "VIDEO" && (
+                  <iframe
+                    width="100%"
+                    height="200"
+                    src={data.media.source.url}
+                    title={data.media.name}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                )}
+                <p style={{ fontWeight: 'normal' }}>
+                  {data.cardDetailedText.join(' ')}
+                </p>
+                
+              </VerticalTimelineElement>
+            ))}
+          </VerticalTimeline>
         </div>
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <Footer/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <Footer />
     </div>
   );
 }
